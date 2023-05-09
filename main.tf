@@ -5,3 +5,4 @@ module "ec2" {
   instance_type = each.value["type"]
 }
 
+
