@@ -11,16 +11,19 @@ resource "aws_instance" "ec2" {
   tags = {
     Name=var.component
   }
+
+}
+resource "null_resource" "provisioner" {
   provisioner "remote-exec" {
     connection {
-      host = self.public_ip
+      host = aws_instance.ec2.public_ip
       user = "centos"
       password = "DevOps321"
     }
     inline = [
-         "git clone https://github.com/krishnaja-b/roboshop-shell",
-         "cd roboshop-shell",
-         "sudo bash ${var.component}.sh"
+      "git clone https://github.com/krishnaja-b/roboshop-shell",
+      "cd roboshop-shell",
+      "sudo bash ${var.component}.sh"
     ]
   }
 }
@@ -62,6 +65,7 @@ variable "instance_type" {}
 variable "env" {
   default = "dev"
 }
+
 
 
 
