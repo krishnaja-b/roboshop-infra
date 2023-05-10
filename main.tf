@@ -3,9 +3,11 @@ module "ec2" {
   source        = "./ec2"
   component     = each.value["name"]
   instance_type = each.value["type"]
-  password      =each.value["password"]
-
+  password      = each.value["password"]
 }
+
+
+
 
 
 
