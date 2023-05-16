@@ -24,13 +24,13 @@ resource "null_resource" "provisioner" {
       "rm -rf roboshop-shell",
       "git clone https://github.com/krishnaja-b/roboshop-shell",
       "cd   roboshop-shell",
-      "sudo bash $ {var.component}.sh $ {var.password}"
+      "sudo bash ${var.component}.sh ${var.password}"
     ]
   }
 }
 
 resource "aws_security_group" "sg" {
-  name="$ {var.component}-$ {var.env}-sg"
+  name="${var.component}-${var.env}-sg"
   description = "Allow TLS inbound traffic"
 
   ingress {
