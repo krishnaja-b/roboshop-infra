@@ -7,7 +7,7 @@
     { name= "dev.user.mongo", value ="true", type= "String" },
     { name= "dev.user.redis_host", value ="redis-dev.aws43.xyz", type= "String" },
     { name= "dev.user.mongo_url", value ="mongodb-dev.aws43.xyz:27017/catalogue", type= "String" },
-   { name= "dev.shipping.cart_endpoint", value ="cart-dev.aws43.xyz", type= "String" },
+   { name= "dev.shipping.cart_endpoint", value ="cart-dev.aws43.xyz:8080", type= "String" },
    { name= "dev.shipping.db_host", value ="mysql-dev.aws43.xyz", type= "String" },
    { name= "dev.payment.cart_host", value ="cart-dev.aws43.xyz", type= "String" },
    { name= "dev.payment.cart_port", value ="8080", type= "String" },
