@@ -18,8 +18,9 @@
    { name= "dev.catalogue.mongo_url", value ="mongodb://mongodb-dev.aws43.xyz:27017/users", type= "String" },
    { name= "dev.cart.redis_host", value ="redis-dev.aws43.xyz", type= "String" },
    { name= "dev.cart.catalogue_host", value ="catalogue-dev.aws43.xyz", type= "String" },
-   { name= "dev.cart.catalogue_port", value ="8080", type= "String" },
+   { name= "dev.cart.catalogue_port", value ="8080", type= "String" }
  ]
+
 
 
 
