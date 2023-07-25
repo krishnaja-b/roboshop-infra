@@ -1,5 +1,7 @@
-variable "instances" {}
+variable "vpc" {}
 variable "env" {}
+
+
 
 
 
