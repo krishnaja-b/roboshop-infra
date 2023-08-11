@@ -21,11 +21,25 @@ module "docdb" {
   skip_final_snapshot = each.value["skip_final_snapshot"]
   engine_version = each.value["engine_version"]
   subnet_ids = local.db.subnet_ids
+  no_of_instances = each.value["no_of_instances"]
+  instance_class = each.value["instance_class"]
 }
 
 output "vpc" {
   value = local.db.subnet_ids
 }
+module "rds" {
+  source = "git::https://github.com/krishnaja-b/tf-module-rds.git"
+  env = var.env
+  tags = var.tags
+  for_each = var.rds
+  subnet_ids = local.db.subnet_ids
+  engine = each.value["engine"]
+  backup_retention_period = each.value["backup_retention_period"]
+  engine_version =each.value["engine_version"]
+  preferred_backup_window = each.value["preferred_backup_window"]
+}
+
 
 
 
