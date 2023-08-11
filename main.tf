@@ -41,6 +41,18 @@ module "rds" {
   instance_class = each.value["instance_class"]
   no_of_instances = each.value["no_of_instances"]
 }
+module "elasticcache" {
+  source = "git::https://github.com/krishnaja-b/tf-module-elasticache.git"
+  env = var.env
+  tags = var.tags
+  for_each = var.elasticcache
+  subnet_ids = local.db.subnet_ids
+  engine = each.value["engine"]
+  engine_version =each.value["engine_version"]
+  num_cache_nodes = each.value["num_cache_nodes"]
+  node_type = each.value["node_type"]
+}
+
 
 
 
