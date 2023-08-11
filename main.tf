@@ -20,7 +20,11 @@ module "docdb" {
   preffered_backup_window = each.value["preffered_backup_window"]
   skip_final_snapshot = each.value["skip_final_snapshot"]
   engine_version = each.value["engine_version"]
-  subnet_ids
+  subnet_ids = local.db.subnet_ids
+}
+
+output "vpc" {
+  value = local.db.subnet_ids
 }
 
 
