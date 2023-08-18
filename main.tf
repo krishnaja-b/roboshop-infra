@@ -53,6 +53,29 @@ module "elasticcache" {
   node_type = each.value["node_type"]
 }
 
+module "rabbitmq"
+ source = "git::https://github.com/krishnaja-b/tf-module-rabbitmq.git"
+ env = var.env
+ tags = var.tags
+ for_each = var.rabbitmq
+ subnet_ids = local.db.subnet_ids
+ instance_type = each.value["instance_type"]
+}
+
+module "alb" {
+ source = "git::https://github.com/krishnaja-b/tf-module-alb.git"
+ env = var.env
+ tags = var.tags
+ for_each = var.alb
+ name = each.value["name"]
+ internal = each.value["internal"]
+ load_balancer_type = each.value["load_balancer_type"]
+  subnets = lookup(local.subnet_ids,each.value["subnet_name"],null)
+
+
+
+}
+
 
 
 

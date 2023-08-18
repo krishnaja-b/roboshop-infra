@@ -8,6 +8,8 @@ variable "default_route_table" {}
 variable "docdb" {}
 variable "rds" {}
 variable "elasticcache" {}
+variable "rabbitmq" {}
+variable "alb" {}
 
 
 
